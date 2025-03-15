@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/e245871c-f291-4a15-ac9e-2be74acec24b/resourceGroups/CADRG/providers/Microsoft.Web/sites/easeexpense",
+    "appService.deploySubpath": "."
+}
