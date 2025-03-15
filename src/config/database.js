@@ -1,22 +1,22 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
 
-// const sequelize = new Sequelize(
-//     `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
-//     { dialect: "postgres", logging: false}
-//   );
+const sequelize = new Sequelize(
+    `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
+    { dialect: "postgres", logging: false}
+  );
 
 
 // For Azure Hosting
-const sequelize = new Sequelize(
-    `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
-    { dialect: "postgres", logging: false,dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false, // Use only for testing, not recommended for production
-      },
-    }, }
-  );
+// const sequelize = new Sequelize(
+//     `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
+//     { dialect: "postgres", logging: false,dialectOptions: {
+//       ssl: {
+//         require: true,
+//         rejectUnauthorized: false, // Use only for testing, not recommended for production
+//       },
+//     }, }
+//   );
   
 // Test Connection
 const testDBConnection = async () => {
