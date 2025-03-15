@@ -6,6 +6,9 @@ const db = require("./config/database");
 // Import Routes
 const userRoutes = require("./routes/user.routes");
 const expenseRoutes = require("./routes/expense.routes");
+const incomeRoutes = require("./routes/income.routes");
+const reportRoutes = require("./routes/reports.routes");
+const adminUserRoutes = require("./routes/admin-users.routes");
 
 const app = express();
 
@@ -17,6 +20,10 @@ app.use(cors()); // Enable CORS
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes);
+app.use("/api/incomes", incomeRoutes);
+app.use("/api/reports", reportRoutes);
+app.use("/api/admin-users",adminUserRoutes );
+
 
 // Test Route
 app.get("/", (req, res) => {

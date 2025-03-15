@@ -50,6 +50,10 @@ const User = sequelize.define("User", {
     type: DataTypes.DATE,
     allowNull: true,
   },
+  role: {
+    type: DataTypes.INTEGER,
+    defaultValue: Role.USER,  // Default role
+  },
 }, {
   timestamps: true,  // Automatically manages createdAt & updatedAt
 });

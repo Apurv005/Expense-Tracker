@@ -11,6 +11,10 @@ const Expense = sequelize.define("expense", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  description:{
+    type: DataTypes.TEXT,
+    allowNull: true
+  },
   amount: {
     type: DataTypes.FLOAT, // Stores amount in decimal format
     allowNull: false,
@@ -23,9 +27,9 @@ const Expense = sequelize.define("expense", {
     type: DataTypes.DATEONLY, // Only stores YYYY-MM-DD
     allowNull: false,
   },
-  notes: {
-    type: DataTypes.TEXT, // Optional extra details
-    allowNull: true,
+  user_id: {
+    type: DataTypes.UUID,
+    allowNull: false,
   },
 }, {
   timestamps: true,  // Adds createdAt & updatedAt fields

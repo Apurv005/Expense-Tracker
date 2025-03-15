@@ -21,13 +21,13 @@ exports.registerUser = async (req, res) => {
     if (!first_name || !last_name || !email || !password) {
       return res
         .status(400)
-        .json({ error: "All required fields must be provided." });
+        .json({success: false, message: "All required fields must be provided." });
     }
 
     // 2️⃣ Check if the email is already registered
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
-      return res.status(400).json({ error: "User already in use!" });
+      return res.status(400).json({success: false, message: "User already in use!" });
     }
 
     hashedPassword = await encryptedPassword(password);
@@ -53,10 +53,11 @@ exports.registerUser = async (req, res) => {
         phone_number: newUser.phone_number,
         profile_picture: newUser.profile_picture,
       },
+      success: true
     });
   } catch (error) {
     console.error("❌ Error registering user:", error);
-    res.status(500).json({ error: "Server error, please try again later." });
+    res.status(500).json({success: false, message: "Server error, please try again later." });
   }
 };
 
@@ -69,19 +70,19 @@ exports.loginUser = async (req,res) => {
     if (!email || !password) {
       return res
         .status(400)
-        .json({ error: "Email and password are required." });
+        .json({ success: false, message: "Email and password are required." });
     }
 
     // 2️⃣ Find the user by email
     const user = await User.findOne({ where: { email } });
     if (!user) {
-      return res.status(401).json({ error: "Invalid email or password." });
+      return res.status(401).json({success: false, message: "Invalid email or password." });
     }
 
     // 3️⃣ Compare passwords
     const isPasswordValid = await bcrypt.compare(password, user.password_hash);
     if (!isPasswordValid) {
-      return res.status(401).json({ error: "Enter valid password!!" });
+      return res.status(401).json({success: false, message: "Enter valid password!!" });
     }
 
     // 4️⃣ Generate JWT token
@@ -93,6 +94,7 @@ exports.loginUser = async (req,res) => {
 
     // 5️⃣ Return the token and user details
     res.status(200).json({
+      success: true,
       message: "Login successful!",
       token,
       user: {
@@ -105,6 +107,6 @@ exports.loginUser = async (req,res) => {
     });
   } catch (error) {
     console.error("❌ Login error:", error);
-    res.status(500).json({ error: "Server error, please try again later." });
+    res.status(500).json({ success: false, message: "Server error, please try again later." });
   }
 };
