@@ -5,8 +5,8 @@ env: standard
 env_variables:
   DB_HOST: 34.40.148.82
   DB_PORT: 5432
-  DB_USER: "rootapurv"
-  DB_PASSWORD: "Apurv@05"
-  DB_NAME: "expense_tracker"
+  DB_USER: rootapurv
+  DB_PASSWORD: Apurv@05
+  DB_NAME: expense_tracker
   PORT: 4000
-  JWT_SECRET: "This is expense tracker application & I am Apurv!"
+  JWT_SECRET: This is expense tracker application & I am Apurv!
