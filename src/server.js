@@ -3,7 +3,7 @@ const cors = require("cors");
 
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+
 
 // Start Server
 app.listen(PORT, () => {
