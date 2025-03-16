@@ -3,7 +3,7 @@ instance_class: F1
 env: standard 
 
 env_variables:
-  DB_HOST: "34.40.148.82"
+  DB_HOST: "ease-expense:australia-southeast1:easeexpensedb"
   DB_PORT: 5432
   DB_USER: "rootapurv"
   DB_PASSWORD: "Apurv@05"
