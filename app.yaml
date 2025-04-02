@@ -3,9 +3,9 @@ instance_class: F1
 env: standard 
 
 env_variables:
-  DB_HOST: 34.40.148.82
+  DB_HOST: '34.87.250.138'
   DB_PORT: 5432
-  DB_USER: rootapurv
+  DB_USER: postgres
   DB_PASSWORD: Apurv@05
   DB_NAME: expense_tracker
   PORT: 4000
