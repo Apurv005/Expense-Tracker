@@ -3,10 +3,10 @@ instance_class: F1
 env: standard 
 
 env_variables:
-  DB_HOST: '34.87.250.138'
+  DB_HOST: 'expensedb.postgres.database.azure.com'
   DB_PORT: 5432
-  DB_USER: postgres
-  DB_PASSWORD: Apurv@05
+  DB_USER: apurv
+  DB_PASSWORD: Root@123
   DB_NAME: expense_tracker
   PORT: 4000
   JWT_SECRET: This is expense tracker application & I am Apurv!
