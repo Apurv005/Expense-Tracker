@@ -17,6 +17,9 @@ app.use(express.json()); // Parse JSON requests
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded data
 app.use(cors()); // Enable CORS
 
+console.log("Success!");
+
+
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes);
